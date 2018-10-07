@@ -15,10 +15,11 @@ import { Observable } from 'rxjs';
 export class AppComponent {
   title = 'ngTestTask';
  result = null;
+
   @Select(TheState.getApp) appState$: Observable<GeneralState>;
 
   constructor(private store: Store, private serv: GithubUsersServiceService ) {
-    console.log("ewtse4t")
-     this.result = serv.loadUsers();
+
+
   }
 }

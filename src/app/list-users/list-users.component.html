@@ -4,8 +4,12 @@
 
 <div style="width: 90%">
   <mat-form-field class="search-form">
-    <input matInput placeholder="Search users" type="text">
+    <input matInput placeholder="Search users" type="text" [formControl]="searchForm" >
   </mat-form-field>
+</div>
+
+<div *ngFor="let user of users$ |async" >
+  {{user.name}} <a href="javascript:;" (click)="viewUser(user.id)">Details</a>
 </div>
 
 

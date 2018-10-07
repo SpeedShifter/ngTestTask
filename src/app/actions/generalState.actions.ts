@@ -1,5 +1,3 @@
-// import {GeneralState} from '../model/generalState.model';
-
 /**
  * Once the token is set, the app will start loading data and switch to presenting the data.
  */
@@ -38,3 +36,4 @@ export class UpdateLoadingProgress {
    */
   constructor(public payload: number) {}
 }
+

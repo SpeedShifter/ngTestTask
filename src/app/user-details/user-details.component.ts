@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngxs/store';
+import { UserList } from 'userList.model';
+import { TheStateModel } from '../state/the.state';
+
+import * as _ from 'lodash';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-user-details',
@@ -8,15 +14,25 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserDetailsComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router, private store: Store) { }
 
-  public id;
+  public id: string;
+  public user: User;
+
+  back() {
+    this.router.navigate(['/listUsers']);
+  }
 
   ngOnInit() {
+    // peek into store and navigate to store if no data is present
+    const userList = this.store.selectSnapshot<UserList>((state: TheStateModel) => state.app.userList);
+    if (!userList || userList.users.length===0) {
+      this.router.navigate(['/']);
+    }
+
     this.id = this.route.snapshot.paramMap.get('id');
 
-
-    // this.hero$ = this.service.getHero(id);
+    this.user =  _.find(userList.users, (u) => u.id === this.id);
   }
 
 }
