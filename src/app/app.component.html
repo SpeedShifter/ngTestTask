@@ -11,3 +11,5 @@
 <h2>Here are some links to help you start: </h2>
 <a routerLink="/listUsers">Test</a><br/>
 <a routerLink="/userDetails/444">Some details</a>
+
+<br/> Is Loading:? {{ (appState$ | async)?.isLoading }}

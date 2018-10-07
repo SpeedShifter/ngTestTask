@@ -8,9 +8,9 @@
 
 <div style="width: 90%">
   <mat-form-field class="token-form">
-    <input matInput placeholder="Github token" type="text">
+    <input matInput placeholder="Github token" type="text" #gitToken>
   </mat-form-field>
 </div>
 <div style="width:100%; text-align:center">
-  <button button="submit" (click)='loadUsers()' mat-raised-button color="primary">Load users</button>
+  <button button="submit" (click)='loadUsers(gitToken.value)' mat-raised-button color="primary">Load users</button>
 </div>
