@@ -16,6 +16,7 @@ import { NgxsModule } from '@ngxs/store';
 import { TheState } from './state/the.state';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     MatCardModule,
     MatIconModule,
     MatButtonModule,
