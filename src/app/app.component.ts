@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
 import { TheState } from './state/the.state';
-import { Observable } from 'rxjs';
 import { GeneralState } from './models/generalState.model';
+import { GithubUsersServiceService } from './github-users-service.service';
+import { Observable } from 'rxjs';
 
 
 
@@ -13,10 +14,11 @@ import { GeneralState } from './models/generalState.model';
 })
 export class AppComponent {
   title = 'ngTestTask';
-
+ result = null;
   @Select(TheState.getApp) appState$: Observable<GeneralState>;
 
-  constructor(private store: Store) {
-
+  constructor(private store: Store, private serv: GithubUsersServiceService ) {
+    console.log("ewtse4t")
+     this.result = serv.loadUsers();
   }
 }
